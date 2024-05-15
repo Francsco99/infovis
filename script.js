@@ -12,7 +12,7 @@ sull'intervallo dei valori delle coordinate o delle grandezze geometriche (che d
 */
 
 //Graph dimensions
-const margin = 10;
+const margin = 20;
 const width = 600;
 const height = 600;
 
