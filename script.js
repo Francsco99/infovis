@@ -18,19 +18,19 @@ const height = 600;
 
 //The radius of the pieplot is half the width or half the height (smallest one)
 const radius = Math.min(width,height)/2 - margin
-
 //Data loading
 d3.json("data/data.json")
     .then(function(data){
     
+    
     // Function to map the second variable to a hue
     const hueScale = d3.scaleLinear()
     .domain([0, d3.max(data, d => d.y)])
-    .range(["#ffcc00", "#ff0000"]); 
+    .range(["#e8e2ab", "#8c2a0a"]); 
 
     // Pie creation
     const pie = d3.pie()
-    .sort(null)
+    .sort((a, b) => a.y - b.y)
     .value(function(d){return d.x;}); // same as .value(d => d.x)
     //.value(d => valScale(d.x));
 
@@ -55,6 +55,7 @@ d3.json("data/data.json")
     .attr("d", arc) //set the arc shape with "d" attribute
     .attr("fill",d=> hueScale(d.data.y)) //use the function to color each segment
     .on("click", function(event,d){
+        
         // Swap x and y values
         const temp = d.data.x;
         d.data.x = d.data.y;
@@ -69,9 +70,10 @@ d3.json("data/data.json")
         // Update the pie chart segments
         path.data(pie(data))
             .transition()
-            .duration(750)
+            .duration(1000)
             .attrTween("d", arcTween)
             .attr("fill", d => hueScale(d.data.y));
+            
     }   
     
     // Function to create smooth transitions between arcs
@@ -82,5 +84,7 @@ d3.json("data/data.json")
             return arc(i(t));
         };
     }
-    
+
+    updateChart(data);
+
 });
