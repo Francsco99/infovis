@@ -1,1 +1,11 @@
-Crea un file json con dei dati bivariati: ci sono 10 data-case e ogni data-case ha due variabili quantitative. Prima disegna questo dataset tramite un diagramma a torta in cui la prima variabile quantitativa è utilizzata per l'angolo dello spicchio di torta (attento, devi fare una proporzione in modo che la somma dia 360°) e la seconda variabile quantitativa è utilizzata per la tonalità di colore dello spicchio. Facendo click con il pulsante sinistro del mouse su uno spicchio di torta i due valori per quello spicchio di torta si scambiano: la prima variabile viene utilizzata per la tonalità di colore e la seconda per l'angolo dello spicchio di torta. Continuando a cliccare si possono trasformare tutti gli spicchi e, volendo, tornare alla situazione iniziale. Fai in modo che le transizioni siano progressive e non a salti. Usa le scale d3.js per mappare l'intervallo dei valori delle variabili (che deve poter essere arbitrario) sull'intervallo dei valori delle coordinate o delle grandezze geometriche (che dipende dalla tua interfaccia).
+# Dynamic Pie Chart Visualization
+Repository for a JavaScript project that visualizes a dynamic pie chart on an SVG canvas based on bivariate data. The dataset consists of 10 data cases, each containing two quantitative variables. Each data case corresponds to a slice of the pie chart, with the two variables determining its angle and hue, respectively. The project utilizes D3.js for data visualization and interaction.
+
+## Files:
+- index.html: HTML file containing the SVG canvas and script tags.
+- data/data.json: JSON file containing the bivariate dataset for hot air balloons.
+- script.js: JavaScript file containing the D3.js code for data visualization and interaction.
+- style.css: CSS file containing styles for the index.html page.
+
+## Demo
+[demo](https://www.fspezzano.it/infovis_pie_chart/pie_chart.html)
