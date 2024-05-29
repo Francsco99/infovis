@@ -28,6 +28,14 @@ d3.json("data/data.json")
     .domain([0, d3.max(data, d => d.y)])
     .range(["#e8e2ab", "#8c2a0a"]); 
 
+    /*
+    //Function to map the first variable to an angle
+    const valScale = d3.scaleLinear()
+    .domain([0, d3.max(data, d => d.x )])
+    .range([0,360])
+    */
+
+    
     // Pie creation
     const pie = d3.pie()
     .sort((a, b) => a.y - b.y)
@@ -70,21 +78,22 @@ d3.json("data/data.json")
         // Update the pie chart segments
         path.data(pie(data))
             .transition()
-            .duration(1000)
-            .attrTween("d", arcTween)
-            .attr("fill", d => hueScale(d.data.y));
+            .duration(1000) //transition duration
+            .attrTween("d", arcTween) //interpolate data
+            .attr("fill", d => hueScale(d.data.y)); //color the arcs
             
     }   
     
     // Function to create smooth transitions between arcs
     function arcTween(a) {
-        const i = d3.interpolate(this._current, a);
+        //a is the new data, this._current is the current state of the arc
+        const i = d3.interpolate(this._current, a); //use d3.interpolate to interpolate old data and new data.
         this._current = i(0); // Set initial value for a smooth transition
         return function(t) {
-            return arc(i(t));
+            return arc(i(t)); //calculates the arc path using the interpolated value
         };
     }
 
-    updateChart(data);
+    updateChart(data); //call the update function to get the smooth transition for the first click
 
 });
