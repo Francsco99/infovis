@@ -8,4 +8,5 @@ Repository for a JavaScript project that visualizes a dynamic pie chart on an SV
 - style.css: CSS file containing styles for the index.html page.
 
 ## Demo
-[demo](https://www.fspezzano.it/infovis_pie_chart/pie_chart.html)
+- [demo](https://www.fspezzano.it/infovis_pie_chart/pie_chart.html)
+- To start a local web server using Python first move to the project directory and then execute the following command: `python -m http.server 8000`.
