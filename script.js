@@ -25,8 +25,8 @@ d3.json("data/data.json")
     
     // Function to map the second variable to a hue
     const hueScale = d3.scaleLinear()
-    .domain([0, d3.max(data, d => d.y)])
-    .range(["#e8e2ab", "#8c2a0a"]); 
+    .domain([0, d3.max(data, d => d.y)]) //second variable
+    .range(["#e8e2ab", "#8c2a0a"]); //hue range
 
     /*
     //Function to map the first variable to an angle
@@ -35,7 +35,7 @@ d3.json("data/data.json")
     .range([0,360])
     */
 
-    
+
     // Pie creation
     const pie = d3.pie()
     .sort((a, b) => a.y - b.y)
